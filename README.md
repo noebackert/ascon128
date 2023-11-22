@@ -5,7 +5,7 @@ SystemVerilog development of ASCON128 cryptograpic function
 
 ## How to run ?
 
-  bash
-  source init_modelsim.txt
-  source compil_ascon.txt
+   bash
+   source init_modelsim.txt
+   source compil_ascon.txt
 

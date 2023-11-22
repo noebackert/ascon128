@@ -1,0 +1,30 @@
+add wave -position insertpoint  \
+sim:/ascon_tb/DUT/tag_o \
+sim:/ascon_tb/DUT/start_i \
+sim:/ascon_tb/DUT/round_s \
+sim:/ascon_tb/DUT/resetb_i \
+sim:/ascon_tb/DUT/nonce_i \
+sim:/ascon_tb/DUT/mode_int_ext_s \
+sim:/ascon_tb/DUT/mode_init_data_s \
+sim:/ascon_tb/DUT/key_i \
+sim:/ascon_tb/DUT/init_cpt_2_s \
+sim:/ascon_tb/DUT/init_b_s \
+sim:/ascon_tb/DUT/init_a_s \
+sim:/ascon_tb/DUT/end_o \
+sim:/ascon_tb/DUT/en_tag_s \
+sim:/ascon_tb/DUT/en_p_s \
+sim:/ascon_tb/DUT/en_cpt_s \
+sim:/ascon_tb/DUT/en_cpt_2_s \
+sim:/ascon_tb/DUT/en_cipher_s \
+sim:/ascon_tb/DUT/data_valid_i \
+sim:/ascon_tb/DUT/data_sel_s \
+sim:/ascon_tb/DUT/data_i \
+sim:/ascon_tb/DUT/clock_i \
+sim:/ascon_tb/DUT/cipher_valid_o \
+sim:/ascon_tb/DUT/cipher_o \
+sim:/ascon_tb/DUT/bypass_end_s \
+sim:/ascon_tb/DUT/bypass_begin_s \
+sim:/ascon_tb/DUT/block_s \
+sim:/ascon_tb/DUT/f/current_state \
+sim:/ascon_tb/DUT/p/permutation_o \
+run 6000 ns

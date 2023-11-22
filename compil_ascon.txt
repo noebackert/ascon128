@@ -1,0 +1,55 @@
+rm -rf ./LIB/LIB_RTL
+rm -rf ./LIB/LIB_BENCH
+
+vlib ./LIB/LIB_RTL
+vmap LIB_RTL ./LIB/LIB_RTL
+vlib ./LIB/LIB_BENCH
+vmap LIB_BENCH ./LIB/LIB_BENCH
+
+Compilation ASCONPACK
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/ascon_pack.sv
+
+Compilation RTL
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/pc.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/sbox.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/ps.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/rotation.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/pl.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/p.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/dff.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/dffN.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/mux.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/permutation_step1.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/xor_begin.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/xor_end.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/permutation_step2.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/permutation_step2bis.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/permutation_step3.sv
+
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/fsm_moore.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/compteur_double_init.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/compteur_blocs.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/permutation.sv
+vlog -sv +acc -svinputport=net -work LIB_RTL ./SRC/RTL/ascon.sv
+
+Compilation BENCH
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/pc_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/sbox_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/ps_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/rotation_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/pl_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/p_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/mux_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/dff_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/dffN_tb.sv
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/permutation_step1_tb.sv 		
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/permutation_step2_tb.sv 		 
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/permutation_step2bis_tb.sv	 
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/permutation_step3bis_tb.sv	
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/fsm_moore_tb.sv	
+#vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/permutation_tb.sv		
+vlog -sv -L LIB_RTL -svinputport=net +acc -work LIB_BENCH ./SRC/BENCH/ascon_tb.sv
+
+
+#vsim -L LIB_RTL LIB_BENCH.permutation_tb &
+vsim -L LIB_RTL LIB_BENCH.ascon_tb &

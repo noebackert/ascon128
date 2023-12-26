@@ -1,7 +1,8 @@
 # ascon128
 SystemVerilog development of ASCON128 cryptograpic function
 
-Report under develoment...
+[Rapport/Report](Rapport_Noe_BACKERT.pdf)
+
 Due for 17 dec. 2023
 ## How to run ?
 
